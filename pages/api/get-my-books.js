@@ -9,7 +9,7 @@ const cors = initMiddleware(
       // Only allow requests with GET, POST and OPTIONS
       methods: ['GET', 'POST', 'OPTIONS'],
     })
-  )
+)
 
 export default async function handler(req, res) {
     
@@ -31,4 +31,4 @@ export default async function handler(req, res) {
     .then(response => response.json())
     .then(data => res.status(200).json({ data: data}))
     .catch(err => console.error(err));
-  };
+};
