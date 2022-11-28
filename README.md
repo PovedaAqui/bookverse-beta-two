@@ -1,4 +1,4 @@
-<!-- Bookverse Beta under construction (FE + BE) -->
+<a name="Bookverse incoming beta update under construction (FE + BE)"></a>
 
 ## Getting Started
 
