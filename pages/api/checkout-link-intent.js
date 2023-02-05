@@ -18,6 +18,7 @@ export default async function handler(req, res) {
 
   const listingId = req.query.listingId;
   const img = req.query.img;
+  const name = req.query.name;
 
   fetch('https://paper.xyz/api/2022-08-12/checkout-link-intent', {
     method: 'POST',
@@ -42,15 +43,19 @@ export default async function handler(req, res) {
       limitPerTransaction: 10,
       redirectAfterPayment: true,
       sendEmailOnTransferSucceeded: true,
-      contractId: 'fbdbf966-3231-48e7-bbee-3eb2a1eafa09',
-      title: 'Digital Collectible Book',
+      feeBearer: "SELLER",
+      contractId: process.env.PAPER_CONTRACT_ID,
+      title: `${name}`,
       contractArgs: {tokenId: `${listingId}`},
       imageUrl: `${img}`,
       description: 'Please, choose the quantity',
-      successCallbackUrl: 'https://bookverse.vercel.app/'
+      successCallbackUrl: 'https://bookverse.vercel.app/shelf',
+      cancelCallbackUrl: `https://bookverse.vercel.app/${listingId}`,
+      postPurchaseMessageMarkdown: "[![twitter](https://bookverse.s3.eu-west-3.amazonaws.com/2021+Twitter+logo+-+blue.png =30x30)](https://twitter.com/bookversexyz)",
+      postPurchaseButtonText: "Go to Shelf",
     })
   })
   .then(response => response.json())
-  .then(data => res.status(200).json({ data: data}))
+  .then(data => res.status(200).json({ data: data }))
   .catch(err => console.error(err));
 };
