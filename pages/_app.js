@@ -16,6 +16,9 @@ import {
     metaMaskWallet,
     coinbaseWallet,
   } from '@rainbow-me/rainbowkit/wallets';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {  
 
@@ -55,12 +58,14 @@ const wagmiClient = createClient({
     <>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
-          <NavBar />
-          <Component {...pageProps} />
+          <QueryClientProvider client={queryClient}>
+            <NavBar />
+            <Component {...pageProps} />
+          </QueryClientProvider>
         </RainbowKitProvider>
       </WagmiConfig>
     </>
     )
 }
 
-export default MyApp
+export default MyApp;

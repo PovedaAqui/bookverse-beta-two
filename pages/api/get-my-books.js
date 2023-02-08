@@ -28,8 +28,7 @@ export default async function handler(req, res) {
       }
     };
     
-    fetch(`https://api.nftport.xyz/v0/accounts/${address}?chain=${chain}&page_size=50&include=metadata&contract_address=${contract}`, options)
-      .then(response => response.json())
-      .then(data => res.status(200).json({ data: data }))
-      .catch(err => console.error(err));
+    const response = await fetch(`https://api.nftport.xyz/v0/accounts/${address}?chain=${chain}&page_size=50&include=metadata&contract_address=${contract}`, options)
+    const data = await response.json()
+    return res.status(200).json({ data: data })
 };
