@@ -24,7 +24,7 @@ const Shelf = () => {
     return (
         <>
         {mounted && !isConnected ? 
-        <div className='flex m-auto justify-center item-center leading-none text-lg font-extrabold text-gray-900 md:text-3xl md:ml-2 md:absolute md:mt-2 lg:text-4xl'>
+        <div className='flex m-auto justify-center item-center leading-none text-lg font-extrabold text-gray-900 md:text-3xl md:ml-2 md:absolute md:mt-2 lg:text-4xl dark:text-inherit'>
             Please, Sign In to start reading
         </div> :
         <div className='grid grid-cols-2 gap-3 m-2 lg:grid-cols-5'>
