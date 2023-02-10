@@ -29,7 +29,6 @@ export default async function handler(req, res) {
       Authorization: process.env.PAPER_KEY
     },
     body: JSON.stringify({
-      walletAddress: `${walletAddress}`,
       sendEmailOnCreation: false,
       requireVerifiedEmail: false,
       metadata: {},
