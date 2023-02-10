@@ -49,7 +49,7 @@ const Card2 =  ({image, listingId, author, name, description, ...props}) => {
     return (
         <div className="relative w-full sm:max-w-full rounded-lg overflow-hidden shadow-md sm:shadow-lg">
             <a className="cursor-pointer" onClick={()=> router.push(`listing/${listingId}`)}>
-                {url ? (<Image className="rounded-t-lg object-cover w-full h-48 sm:h-72" src={url} alt="cover" width={450} height={450} priority={true}/>) 
+                {url ? (<Image src={url} className="rounded-t-lg object-cover w-full h-48 sm:h-72" alt="cover" width={450} height={450} priority={true}/>) 
                 : (<div className="h-48 sm:h-64 bg-gray-200 flex items-center justify-center animate-pulse">Loading...</div>)}
                 <div className="px-4 py-2 sm:py-4">
                     <div className="font-bold text-sm sm:text-lg mb-0 text-inherit">{name? name : <div>Title...</div>}</div>

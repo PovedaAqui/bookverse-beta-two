@@ -19,6 +19,7 @@ export default async function handler(req, res) {
   const listingId = req.query.listingId;
   const img = req.query.img;
   const name = req.query.name;
+  const walletAddress = req.query.walletAddress;
   
   const options = {
     method: 'POST',
@@ -28,19 +29,20 @@ export default async function handler(req, res) {
       Authorization: process.env.PAPER_KEY
     },
     body: JSON.stringify({
+      walletAddress: `${walletAddress}`,
       sendEmailOnCreation: false,
-      requireVerifiedEmail: true,
+      requireVerifiedEmail: false,
       metadata: {},
       expiresInMinutes: 12,
       usePaperKey: false,
       hideNativeMint: false,
-      hidePaperWallet: false,
+      hidePaperWallet: true,
       hideExternalWallet: false,
       hidePayWithCard: false,
       hideApplePayGooglePay: false,
       hidePayWithCrypto: true,
       hidePayWithIdeal: true,
-      limitPerTransaction: 10,
+      limitPerTransaction: 20,
       redirectAfterPayment: true,
       sendEmailOnTransferSucceeded: true,
       feeBearer: "SELLER",
@@ -55,7 +57,7 @@ export default async function handler(req, res) {
       postPurchaseButtonText: "Go to Shelf",
     })
   };
-  const response = fetch('https://paper.xyz/api/2022-08-12/checkout-link-intent')
+  const response = await fetch('https://paper.xyz/api/2022-08-12/checkout-link-intent', options)
   const data = await response.json()
   return res.status(200).json({ data: data })
 };

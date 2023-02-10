@@ -60,7 +60,7 @@ const ListingPage = () => {
     const response = await fetch(`/api/checkout-link-intent?listingId=${listingId}&img=${img}&name=${nft.metadata.name}`);
     const data = await response.json();
     console.log(data);
-    window.open(data?.returnData?.checkoutLinkIntentUrl ?? data?.checkoutLinkIntentUrl, "_blank");
+    window.open(data?.data.returnData?.checkoutLinkIntentUrl ?? data?.data?.checkoutLinkIntentUrl, "_blank");
     setPending(false);
   };
 
@@ -69,7 +69,7 @@ const ListingPage = () => {
       {!isLoading && nft ? (
         <div className="flex flex-col items-center justify-center max-w-xs sm:max-w-lg sm:ml-4">
           <div className="flex flex-col items-center justify-center max-w-xs"> {/* NFT image in the left */}
-              <Image src={img} alt="cover" height={450} width={450} priority={true} className="w-full h-auto" />
+              {img && <Image src={img} alt="cover" height={450} width={450} priority={true} className="w-full h-auto" />}
           </div>
           <div className="flex flex-col items-center justify-center max-w-lg text-left sm:ml-4"> {/* NFT info in the right */}
             <h1 className="text-2xl font-bold sm:text-3xl mt-2 sm:mt-0">{nft.metadata.name}</h1>
