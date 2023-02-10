@@ -19,8 +19,8 @@ export default async function handler(req, res) {
   const listingId = req.query.listingId;
   const img = req.query.img;
   const name = req.query.name;
-
-  fetch('https://paper.xyz/api/2022-08-12/checkout-link-intent', {
+  
+  const options = {
     method: 'POST',
     headers: {
       accept: 'application/json',
@@ -54,8 +54,8 @@ export default async function handler(req, res) {
       postPurchaseMessageMarkdown: "[![twitter](https://bookverse.s3.eu-west-3.amazonaws.com/2021+Twitter+logo+-+blue.png =30x30)](https://twitter.com/bookversexyz)",
       postPurchaseButtonText: "Go to Shelf",
     })
-  })
-  .then(response => response.json())
-  .then(data => res.status(200).json({ data: data }))
-  .catch(err => console.error(err));
+  };
+  const response = fetch('https://paper.xyz/api/2022-08-12/checkout-link-intent')
+  const data = await response.json()
+  return res.status(200).json({ data: data })
 };

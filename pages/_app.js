@@ -5,7 +5,12 @@ import {
   connectorsForWallets,
   RainbowKitProvider,
 } from "@rainbow-me/rainbowkit";
-import { configureChains, createClient, WagmiConfig, useWebSocketProvider } from "wagmi";
+import { 
+    configureChains, 
+    createClient, 
+    WagmiConfig, 
+    useWebSocketProvider,
+    useSigner } from "wagmi";
 import { polygon } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
@@ -17,6 +22,7 @@ import {
     coinbaseWallet,
   } from '@rainbow-me/rainbowkit/wallets';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ChainId, ThirdwebSDKProvider } from "@thirdweb-dev/react";
 
 const queryClient = new QueryClient();
 
@@ -53,15 +59,39 @@ const wagmiClient = createClient({
   useWebSocketProvider,
 });
 
+function ThirdwebProvider({ wagmiClient, children }) {
+  const { data: signer } = useSigner();
+
+  return (
+    <ThirdwebSDKProvider
+      desiredChainId={ChainId.Polygon}
+      signer={signer}
+      provider={wagmiClient.provider}
+      queryClient={wagmiClient.queryClient}
+      // sdkOptions={{
+      //   gasless: {
+      //     openzeppelin: {
+      //       relayerUrl: process.env.REACT_APP_WEBHOOK_URL,
+      //     },
+      //   },
+      // }}
+    >
+      {children}
+    </ThirdwebSDKProvider>
+  );
+}
+
 
   return (
     <>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
+        <ThirdwebProvider wagmiClient={wagmiClient}>
           <QueryClientProvider client={queryClient}>
             <NavBar />
             <Component {...pageProps} />
-          </QueryClientProvider>
+           </QueryClientProvider>
+          </ThirdwebProvider>
         </RainbowKitProvider>
       </WagmiConfig>
     </>
