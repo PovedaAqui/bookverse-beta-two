@@ -37,7 +37,7 @@ const Card = ({image, name, author, tokenId, ...props}) => {
       
 
     return (
-      <div className="relative w-full sm:max-w-xs md:max-w-sm rounded-lg overflow-hidden shadow-sm sm:shadow-m bg-inherit shadow-inherit">
+      <div className="relative w-full sm:max-w-xs md:max-w-sm rounded-lg overflow-hidden shadow-sm sm:shadow-m bg-inherit dark:bg-gray-900">
         <a href={externalUrl} target="_blank" rel="external">
           {url && (<Image className="rounded-t-lg object-cover w-full h-48 sm:h-72" src={url} alt="cover" width={450} height={450} priority={true}/>)} 
           <div className="px-4 py-2 sm:py-4">

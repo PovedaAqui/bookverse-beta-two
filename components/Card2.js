@@ -47,7 +47,7 @@ const Card2 =  ({image, listingId, author, name, description, ...props}) => {
     }, [priceData])
 
     return (
-        <div className="relative w-full sm:max-w-full rounded-lg overflow-hidden shadow-md sm:shadow-lg">
+        <div className="relative w-full sm:max-w-full rounded-lg overflow-hidden shadow-sm sm:shadow-lg shadow-gray-700 dark:bg-gray-900">
             <a className="cursor-pointer" onClick={()=> router.push(`listing/${listingId}`)}>
                 {url ? (<Image src={url} className="rounded-t-lg object-cover w-full h-48 sm:h-72" alt="cover" width={450} height={450} priority={true}/>) 
                 : (<div className="h-48 sm:h-64 bg-gray-200 flex items-center justify-center animate-pulse">Loading...</div>)}

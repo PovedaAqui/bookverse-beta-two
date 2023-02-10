@@ -25,5 +25,15 @@ module.exports = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/docs',
+        destination: 'https://bookverse.gitbook.io/bookverse/',
+        permanent: false,
+        basePath: false
+      },
+    ]
+  },
 } || nextConfig
 // module.exports = nextConfig
