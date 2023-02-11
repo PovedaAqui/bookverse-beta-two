@@ -1,4 +1,4 @@
-Bookverse incoming beta update under construction (FE + BE)
+Bookverse current beta (active)
 
 ## Getting Started
 
