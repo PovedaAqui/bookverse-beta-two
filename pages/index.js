@@ -1,6 +1,7 @@
 import { useContract, useNFTs } from '@thirdweb-dev/react';
 import Card2 from '../components/Card2';
 import useIsMounted from './hooks/useIsMounted';
+import Head from 'next/head';
 
 export default function Store() {
 
@@ -10,6 +11,10 @@ export default function Store() {
 
   return (
     <>
+      <Head>
+        <title>Store</title>
+        <meta property="og:title" content="Bookverse Store" key="title" />
+      </Head>
       {mounted && isLoading ? 
       <h1>
         Loading...

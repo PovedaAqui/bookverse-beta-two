@@ -3,6 +3,7 @@ import { useAccount } from 'wagmi';
 import { useQuery } from '@tanstack/react-query';
 import Card from '../components/Card';
 import useIsMounted from './hooks/useIsMounted';
+import Head from 'next/head';
 
 const Shelf = () => {
 
@@ -23,6 +24,10 @@ const Shelf = () => {
 
     return (
         <>
+        <Head>
+            <title>Shelf</title>
+            <meta property="og:title" content="Bookverse Shelf" key="title" />
+        </Head>
         {mounted && !isConnected ? 
         <div className='flex m-auto justify-center item-center leading-none text-lg font-extrabold text-gray-900 md:text-3xl md:ml-2 md:absolute md:mt-2 lg:text-4xl dark:text-inherit'>
             Please, Sign In to start reading
