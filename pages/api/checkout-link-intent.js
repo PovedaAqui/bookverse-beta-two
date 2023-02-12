@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   const listingId = req.query.listingId;
   const img = req.query.img;
   const name = req.query.name;
-  const walletAddress = req.query.walletAddress;
+  const address = req.query.address;
   
   const options = {
     method: 'POST',
@@ -29,6 +29,7 @@ export default async function handler(req, res) {
       Authorization: process.env.PAPER_KEY
     },
     body: JSON.stringify({
+      walletAddress: `${address}`,
       sendEmailOnCreation: false,
       requireVerifiedEmail: false,
       metadata: {},

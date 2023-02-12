@@ -6,6 +6,7 @@ import {
 } from "@thirdweb-dev/react";
 import usePrice from "../hooks/Price";
 import Image from "next/image";
+import { useAccount } from "wagmi";
 
 const ListingPage = () => {
 
@@ -13,6 +14,7 @@ const ListingPage = () => {
   const [currency, setCurrency] = useState(null);
   const [pending, setPending] = useState(false);
   const [img, setImg] = useState(null);
+  const { address, isConnecting, isDisconnected } = useAccount(); // get the user's address
 
   const { contract } = useContract(process.env.NEXT_PUBLIC_DROP_CONTRACT); // Contract address
 
@@ -57,7 +59,7 @@ const ListingPage = () => {
 
   const fetchCheckoutLink = async () => { // fetch the checkout link from the server
     setPending(true);
-    const response = await fetch(`/api/checkout-link-intent?listingId=${listingId}&img=${img}&name=${nft.metadata.name}`);
+    const response = await fetch(`/api/checkout-link-intent?listingId=${listingId}&img=${img}&name=${nft.metadata.name}&address=${address}`);
     const data = await response.json();
     console.log(data);
     window.open(data?.data.returnData?.checkoutLinkIntentUrl ?? data?.data?.checkoutLinkIntentUrl, "_blank");
@@ -77,7 +79,7 @@ const ListingPage = () => {
             <p className="text-sm sm:text-lg mb-2 text-inherit">{nft.metadata.description}</p>
             <h2 className="font-bold mb-2 text-inherit">Price: {price} {currency}</h2>
             <div className="flex flex-col items-center justify-center align-middle mt-2"> {/* Buy button below*/}
-              {!pending? <button onClick={() => fetchCheckoutLink()} className="w-full bg-gradient-to-br from-orange-100 via-blue-700 to-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-4 sm:px-6 mb-0 rounded">
+              {!pending? <button onClick={() => address ? fetchCheckoutLink() : alert("You need to Sign In first")} className="w-full bg-gradient-to-br from-orange-100 via-blue-700 to-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-4 sm:px-6 mb-0 rounded">
                 Buy Now
               </button> : 
               <button className="bg-gradient-to-br from-orange-100 via-blue-700 to-indigo-400 animate-pulse text-white font-bold py-2 px-4 sm:px-6 rounded mb-3">
