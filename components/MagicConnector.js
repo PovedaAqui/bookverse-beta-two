@@ -9,13 +9,13 @@ export const rainbowMagicConnector = ({ chains }) => ({
   iconUrl: "https://svgshare.com/i/pXA.svg",
   iconBackground: "white",
   createConnector: () => ({
-    connector: new MagicConnectConnector({
+    connector: new MagicAuthConnector({
       chains,
       options: {
         // Get the API key from the .env file
-        apiKey: `${process.env.NEXT_PUBLIC_MAGIC_KEY}`,
+        apiKey: `${process.env.NEXT_PUBLIC_MAGIC_KEY_AUTH}`,
         oauthOptions: {
-          providers: ["google", "facebook", "twitter"],
+          providers: ["google"],
         },
         isDarkMode: true,
         magicSdkConfiguration: {
