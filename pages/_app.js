@@ -45,11 +45,16 @@ const connectors = connectorsForWallets([
       wallets: [
         rainbowMagicConnector({ chains }),
         metaMaskWallet({ chains }),
+      ],
+    },
+    {
+      groupName: "Other",
+      wallets: [
         rainbowWallet({ chains }),
         coinbaseWallet({ chains }),
         walletConnectWallet({ chains }),
       ],
-    },
+    }
 ]);
 
 const wagmiClient = createClient({
