@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import { Analytics } from '@vercel/analytics/react';
 import NavBar from '../components/NavBar'
 import "@rainbow-me/rainbowkit/styles.css";
 import {
@@ -91,11 +92,12 @@ function ThirdwebProvider({ wagmiClient, children }) {
     <>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
-        <ThirdwebProvider wagmiClient={wagmiClient}>
-          <QueryClientProvider client={queryClient}>
-            <NavBar />
-            <Component {...pageProps} />
-           </QueryClientProvider>
+          <ThirdwebProvider wagmiClient={wagmiClient}>
+            <QueryClientProvider client={queryClient}>
+              <NavBar />
+              <Component {...pageProps} />
+              <Analytics />
+            </QueryClientProvider>
           </ThirdwebProvider>
         </RainbowKitProvider>
       </WagmiConfig>
