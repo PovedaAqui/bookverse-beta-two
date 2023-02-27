@@ -22,7 +22,7 @@ const ListingPage = () => {
   const listingId = router.query.listingId; // listing ID from URL
   const priceToken = usePrice(listingId); // get the price of the listing from the contract
 
-  const { data: nft, isLoading, isSuccess } = useNFT(contract, listingId);
+  const { data: nft, isLoading, isSuccess } = useNFT(contract, listingId); //Output: metadata, owner, supply, type.
 
   useEffect(() => {
     const fetchUrl = async () => {
@@ -77,6 +77,7 @@ const ListingPage = () => {
             <h1 className="text-2xl font-bold sm:text-3xl mt-2 sm:mt-0 text-inherit">{nft.metadata.name}</h1>
             <p className="text-sm sm:text-base font-normal tracking-wide mb-2 text-inherit">{nft.metadata.attributes[0].value}</p>
             <p className="text-sm sm:text-lg mb-2 text-inherit">{nft.metadata.description}</p>
+            <p className="text-sm sm:text-lg mb-2 text-inherit">Language: {nft.metadata.attributes[7].value}</p>
             <h2 className="font-bold mb-2 text-inherit">Price: {price} {currency}</h2>
             <div className="flex flex-col items-center justify-center align-middle mt-2"> {/* Buy button below*/}
               {!pending? <button onClick={() => address ? fetchCheckoutLink() : alert("You need to Sign In first")} className="w-full bg-gradient-to-br from-orange-100 via-blue-700 to-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-4 sm:px-6 mb-0 rounded">
