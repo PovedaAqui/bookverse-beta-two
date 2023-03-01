@@ -95,7 +95,7 @@ export default function NavBar() {
               {navigation.map((item) => (
                 <Link
                   key={item.name}
-                  as="a"
+                  // as="a"
                   href={item.href}
                   className={classNames(
                     router.pathname === item.href ? 'bg-gray-900 text-white align-middle items-center text-center' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
