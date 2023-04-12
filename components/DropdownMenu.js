@@ -75,7 +75,7 @@ export default function DropdownMenu({tokenId}) {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={() => window.location.href=`https://opensea.io/assets/matic/${process.env.REACT_APP_DROP_CONTRACT}/${tokenId}`}
+                    onClick={() => window.location.href=`https://opensea.io/assets/matic/${process.env.NEXT_PUBLIC_DROP_CONTRACT}/${tokenId}`}
                     className={`${
                       active ? 'bg-violet-500 text-white' : 'text-gray-700'
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
