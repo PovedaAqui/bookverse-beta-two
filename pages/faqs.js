@@ -43,7 +43,7 @@ const Faqs = () => {
                         Bookverse items are tied to a Non-Fungible Token (NFT) that proves ownership and authenticity. Like a physical book, 
                         the NFT ensures that this item is unique and belongs to you. It can be displayed on your digital shelf, 
                         passed down to others, or moved outside the platform. The NFT connects you to the original creators and anyone who has owned it. 
-                        It\'s scarce, unalterable, and can\'t be lost or destroyed, 
+                        It&apos;s scarce, unalterable, and can&apos;t be lost or destroyed, 
                         making it a safe and valuable addition to your collection.
                         </p>
                     </div>
@@ -54,7 +54,7 @@ const Faqs = () => {
                         </h3>
                         <p className="text-gray-500 dark:text-gray-400">
                         One major benefit of cBooks in Bookverse is their link to an NFT, which unlocks a plethora of new features for the buyer, 
-                        such as proof of ownership, authenticity, and a direct connection to the author\'s community. Another unique advantage is the limited availability of cBooks, 
+                        such as proof of ownership, authenticity, and a direct connection to the author&apos;s community. Another unique advantage is the limited availability of cBooks, 
                         making them a valuable and scarce digital item that stands out from the endless supply of e-books available on other platforms. 
                         This digital scarcity adds to the unique value of cBooks, making them a worthwhile investment for collectors and readers alike.
                         </p>
@@ -97,7 +97,7 @@ const Faqs = () => {
                             <p className="text-gray-500 dark:text-gray-400">
                             Make money with Bookverse by pre-selling your book excerpt for a pre-order, earning 96.5% of the list price at launch, receiving royalties from secondary sales, and selling additional features/services together with the utilities given by your books. Bookverse only takes a 3.5% cut, which is much less than traditional publishers or Amazon itself.
                             Remember that the most benefits you give to your readers (nft holders), the more valuable your Books (NFTs) will be in the secondary market, creating a bigger additional passive income from royalties.
-                            As your cBook gains more popularity and people become interested in it, the demand for your book increases, which can lead to an appreciation in its value. This means that initial holders who have already read the book can sell it for a profit, while you, as the author, continue to earn royalties from its sales. Moreover, the new owner who acquires the cBook benefits from the unique utilities that it provides, such as proof of ownership, authenticity, and a direct connection to the author\'s community. Therefore, owning a cBook offers both financial and non-financial benefits, making it a valuable addition to anyone\'s collection.
+                            As your cBook gains more popularity and people become interested in it, the demand for your book increases, which can lead to an appreciation in its value. This means that initial holders who have already read the book can sell it for a profit, while you, as the author, continue to earn royalties from its sales. Moreover, the new owner who acquires the cBook benefits from the unique utilities that it provides, such as proof of ownership, authenticity, and a direct connection to the author&apos;s community. Therefore, owning a cBook offers both financial and non-financial benefits, making it a valuable addition to anyone&apos;s collection.
                             </p>
                         </div>
                         <div className="mb-10">
